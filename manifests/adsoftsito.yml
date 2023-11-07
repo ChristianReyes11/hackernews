@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: christianreyes11
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: christianreyes11
+  template:
+    metadata:
+      labels:
+        app: christianreyes11
+    spec:
+      containers:
+        - image: okteto.dev/christianreyes11:latest
+          name: christianreyes11
+          #envFrom:
+          # - configMapRef:
+          #    name: christianreyes11-config
+          livenessProbe:
+            httpGet:
+              path: /ht/
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: christianreyes11
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: ClusterIP
+  ports:
+    - name: "christianreyes11"
+      port: 8080
+  selector:
+    app: christianreyes11

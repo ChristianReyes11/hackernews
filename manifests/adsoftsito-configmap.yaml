@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: christianreyes11-config
+  labels:
+    app: postgres
+data:
+  DEV_SECRET_KEY: i-love-christianreyes11
+  DEV_DATABASE: kbqqisjg
+  DEV_USER: kbqqisjg
+  DEV_PASSWORD: hFi86EWQaHuazwRyOWkjfVVw39c88aS6
+  DEV_HOST: rain.db.elephantsql.com
+  DEV_PORT: "5432"
